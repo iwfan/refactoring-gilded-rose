@@ -19,33 +19,15 @@ public class Item {
             this.sell_in = this.sell_in - 1;
         }
 
-        if (!name.equals("Aged Brie")
-                && !name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            if (quality > 0) {
-                if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-                    this.quality = this.quality - 1;
-                }
+        if (quality > 0) {
+            if (!name.equals("Aged Brie")
+                    && !name.equals("Backstage passes to a TAFKAL80ETC concert")
+                    && !name.equals("Sulfuras, Hand of Ragnaros")) {
+                this.quality = this.quality - 1;
             }
-        } else {
-            if (this.quality < 50) {
-                this.quality = this.quality + 1;
-
-                if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                    if (this.sell_in < 11) {
-                        if (this.quality < 50) {
-                            this.quality = this.quality + 1;
-                        }
-                    }
-
-                    if (this.sell_in < 6) {
-                        if (this.quality < 50) {
-                            this.quality = this.quality + 1;
-                        }
-                    }
-                }
-            }
+        } else if (quality < 50) {
+            this.quality = this.quality + 1;
         }
-
 
         if (this.sell_in < 0) {
             if (!name.equals("Aged Brie")) {
